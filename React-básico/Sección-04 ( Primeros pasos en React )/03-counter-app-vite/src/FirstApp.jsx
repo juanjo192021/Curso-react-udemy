@@ -1,14 +1,6 @@
-const name = 'Juan José !!!';
+import  PropTypes  from "prop-types";
 
-const newMessage = {
-    message: 'Hola mundo',
-    title: 'Fernando'
-}
-
-const getResult = (a,b) =>{
-    return a +b ;
-}
-export const FirstApp = () => {
+export const FirstApp = ({title, subTitle}) => {
 
 
     return (
@@ -16,8 +8,18 @@ export const FirstApp = () => {
         <>
             {/* <h1> { getResult(1,2) } </h1> */}
             {/* <code>{ JSON.stringify( newMessage ) }</code> */}
-            <h1>{ name }</h1>
-            <p>Soy un Subtitutlo</p>
+            <h1> { title } </h1>
+            <p> { subTitle } </p>
         </>
     )
+}
+
+FirstApp.propTypes = {
+    title: PropTypes.string.isRequired,
+    subTitle: PropTypes.string.isRequired
+}
+
+FirstApp.defaultProps = {
+    title: 'No hay título',
+    subTitle: 'No hay subtítulo'
 }
